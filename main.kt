@@ -11,9 +11,9 @@ fun vigenere(text: String, keyword: String): String {
         var offset = index + key
 
         if (offset >= 26) offset -= 26
+        
         output.add(alphabet[offset])
     }
-
     return output.joinToString(separator = "")
 }
 
