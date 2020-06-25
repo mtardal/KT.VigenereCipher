@@ -4,13 +4,11 @@ fun vigenere(text: String, keyword: String): String {
     val textList = text.toMutableList()
     val keyList = keyword.toMutableList()
     val output = mutableListOf<Char>()
-    var loopCount: Int = 0
 
-    for (char in textList) {
+    for ((i, char) in textList.withIndex()) {
         val index = alphabet.indexOf(char)
-        val key = alphabet.indexOf(keyword[loopCount])
+        val key = alphabet.indexOf(keyword[i])
         var offset = index + key
-        loopCount++
 
         if (offset >= 26) offset -= 26
         output.add(alphabet[offset])
@@ -31,6 +29,8 @@ fun generateKey(text: String, key: String): String {
     }
     return generatedKey.joinToString(separator = "")
 }
+
+
 
 fun main() {
     val text = "GEEKSFORGEEKS"
